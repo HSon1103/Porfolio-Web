@@ -63,16 +63,16 @@
     {
       "id": 3,
       "title": "Automated Secure Network Infrastructure",
-      "role_en": "Network Security Engineer Â· GNS3 Platform",
-      "role_vi": "Ká»¹ sÆ° Báº£o máº­t Máº¡ng Â· Ná»n táº£ng GNS3",
+      "role_en": "Network Security Engineer At GNS3 Platform",
+      "role_vi": "Kỹ sư bảo mật mạng",
       "period": "Grade: 8.9/10",
       "bullets_en": [
         "Designed a secure network topology with Site-to-Site VPN, OSPF, VLAN, NAT/PAT, and ACL",
         "Integrated automation with Python scripts for network configuration within GNS3"
       ],
       "bullets_vi": [
-        "Thiáº¿t káº¿ topology máº¡ng báº£o máº­t vá»i Site-to-Site VPN, OSPF, VLAN, NAT/PAT vÃ  ACL",
-        "TÃ­ch há»£p tá»± Äá»ng hÃ³a vá»i Python script trong GNS3"
+        "Thiết kế thành công sơ đồ mạng bảo mật cao, ứng dụng đa dạng các công nghệ từ Site-to-Site VPN, OSPF đến VLAN, NAT/PAT và bộ lọc ACL.",
+        "Tích hợp giải pháp tự động hóa thông qua các kịch bản (script) Python để tối ưu hóa quá trình cấu hình mạng trong môi trường GNS3."
       ],
       "tech": [
         "GNS3",
