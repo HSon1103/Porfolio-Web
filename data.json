@@ -85,14 +85,14 @@
     {
       "id": 4,
       "title": "Full-stack Web Projects (Portfolio & E-learning)",
-      "role_en": "Full-stack Developer Â· Academic Project",
-      "role_vi": "Láº­p trÃ¬nh viÃªn Full-stack Â· Dá»± Ã¡n há»c thuáº­t",
+      "role_en": "Designer",
+      "role_vi": "Thiết kế",
       "period": "Grade: 8.6/10",
       "bullets_en": [
         "Developed functional web applications focusing on database management and responsive design"
       ],
       "bullets_vi": [
-        "PhÃ¡t triá»n á»©ng dá»¥ng web vá»i trá»ng tÃ¢m quáº£n lÃ½ cÆ¡ sá» dá»¯ liá»u vÃ  thiáº¿t káº¿ responsive"
+        "Phát triển các ứng dụng web hoàn thiện về chức năng, tập trung vào quản trị cơ sở dữ liệu hệ thống và tối ưu hóa hiển thị trên đa thiết bị (responsive design)"
       ],
       "tech": [
         "HTML5",
