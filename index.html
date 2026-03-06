@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nguyen Hoang Son — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#FAF8F4; --white:#FFF; --s100:#F1F0ED; --s200:#E4E2DC;
+  --s400:#9B9589; --s600:#5C5650; --s800:#2C2A26;
+  --navy:#1E3A5F; --navyL:#2E5082;
+  --acc:#C9824A; --accL:#E8A87C; --accP:#F5E8DC;
+  --grn:#3D6B5A; --grnP:#E4EDE9;
+  --fd:'Playfair Display',Georgia,serif;
+  --fb:'DM Sans',sans-serif; --fm:'DM Mono',monospace;
+  --sh1:0 2px 8px rgba(44,42,38,.06);
+  --sh2:0 4px 24px rgba(44,42,38,.10);
+  --sh3:0 12px 48px rgba(44,42,38,.14);
+  --r:14px; --rs:8px; --tr:.35s cubic-bezier(.4,0,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--cream);color:var(--s800);line-height:1.6;overflow-x:hidden}
+
+/* ── LOADER ── */
+#loader{position:fixed;inset:0;z-index:9999;background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;transition:opacity .6s,visibility .6s}
+#loader.gone{opacity:0;visibility:hidden}
+.ld-logo{font-family:var(--fd);font-size:2.2rem;font-weight:700;color:var(--navy);letter-spacing:-.02em}
+.ld-bar{width:100px;height:2px;background:var(--s200);border-radius:2px;overflow:hidden}
+.ld-fill{height:100%;background:var(--navy);border-radius:2px;animation:ldfill 1.2s ease forwards}
+@keyframes ldfill{from{width:0}to{width:100%}}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,248,244,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--s200);display:flex;align-items:center;justify-content:space-between;padding:0 5vw;height:64px;transition:box-shadow var(--tr)}
+nav.sc{box-shadow:var(--sh1)}
+.nlogo{font-family:var(--fd);font-size:1.2rem;font-weight:700;color:var(--navy);letter-spacing:-.02em;cursor:pointer}
+.nlinks{display:flex;gap:2px;align-items:center}
+.nlinks a{font-size:.85rem;font-weight:500;color:var(--s600);text-decoration:none;padding:6px 13px;border-radius:50px;transition:all var(--tr)}
+.nlinks a:hover,.nlinks a.act{background:var(--accP);color:var(--acc)}
+.nright{display:flex;gap:8px;align-items:center}
+.lbtn{font-family:var(--fm);font-size:.76rem;font-weight:500;color:var(--s600);background:none;border:1.5px solid var(--s200);padding:4px 11px;border-radius:50px;cursor:pointer;transition:all var(--tr)}
+.lbtn.act,.lbtn:hover{border-color:var(--navy);color:var(--navy);background:rgba(30,58,95,.06)}
+.mbtn{display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--s800)}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;align-items:center;padding:80px 5vw 60px;position:relative;overflow:hidden}
+.hbg{position:absolute;inset:0;background:linear-gradient(135deg,#FAF8F4,#F0EDE6 50%,#E8E2D8);z-index:0}
+.hd1{position:absolute;right:-5%;top:10%;width:min(50vw,560px);height:min(50vw,560px);border-radius:40% 60% 70% 30%/40% 50% 60% 50%;background:linear-gradient(145deg,rgba(201,130,74,.10),rgba(30,58,95,.08));animation:mb1 12s ease-in-out infinite;z-index:0}
+.hd2{position:absolute;left:-8%;bottom:-5%;width:min(35vw,380px);height:min(35vw,380px);border-radius:60% 40% 30% 70%/60% 30% 70% 40%;background:linear-gradient(145deg,rgba(61,107,90,.07),rgba(201,130,74,.06));animation:mb2 15s ease-in-out infinite;z-index:0}
+@keyframes mb1{0%,100%{border-radius:40% 60% 70% 30%/40% 50% 60% 50%}33%{border-radius:70% 30% 50% 50%/30% 30% 70% 70%}66%{border-radius:30% 70% 30% 70%/50% 60% 40% 50%}}
+@keyframes mb2{0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%}50%{border-radius:30% 70% 70% 30%/40% 60% 40% 60%}}
+.hinner{position:relative;z-index:1;display:flex;align-items:center;gap:clamp(40px,8vw,100px);max-width:1100px;margin:0 auto;width:100%}
+.htext{flex:1}
+.hbadge{display:inline-flex;align-items:center;gap:8px;background:var(--accP);border:1px solid rgba(201,130,74,.25);color:var(--acc);font-size:.8rem;font-weight:600;padding:5px 14px 5px 8px;border-radius:50px;margin-bottom:24px;animation:fu .7s both}
+.hbdot{width:8px;height:8px;border-radius:50%;background:var(--acc);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.3)}}
+.hname{font-family:var(--fd);font-size:clamp(2.4rem,6vw,4.2rem);font-weight:700;color:var(--s800);line-height:1.1;letter-spacing:-.02em;margin-bottom:12px;animation:fu .7s .1s both}
+.hname span{color:var(--navy)}
+.htitle{font-size:clamp(1rem,2.5vw,1.2rem);color:var(--s400);margin-bottom:20px;animation:fu .7s .2s both}
+.hdesc{font-size:1rem;color:var(--s600);max-width:480px;margin-bottom:36px;line-height:1.75;animation:fu .7s .3s both}
+.hacts{display:flex;gap:12px;flex-wrap:wrap;animation:fu .7s .4s both}
+.btnp{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;font-family:var(--fb);font-size:.9rem;font-weight:600;padding:13px 28px;border-radius:50px;border:none;cursor:pointer;text-decoration:none;transition:all var(--tr);box-shadow:0 4px 16px rgba(30,58,95,.25)}
+.btnp:hover{background:var(--navyL);transform:translateY(-2px);box-shadow:0 8px 24px rgba(30,58,95,.3)}
+.btns{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--s800);font-family:var(--fb);font-size:.9rem;font-weight:600;padding:13px 28px;border-radius:50px;border:1.5px solid var(--s200);cursor:pointer;text-decoration:none;transition:all var(--tr)}
+.btns:hover{border-color:var(--acc);color:var(--acc);transform:translateY(-2px)}
+.hpwrap{flex-shrink:0;animation:fu .8s .2s both}
+.hpouter{width:clamp(200px,28vw,320px);height:clamp(200px,28vw,320px);position:relative}
+.hpring{position:absolute;inset:-10px;border-radius:40% 60% 55% 45%/45% 40% 60% 55%;border:2px solid rgba(201,130,74,.30);animation:rot 18s linear infinite}
+@keyframes rot{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.hphoto{width:100%;height:100%;border-radius:38% 62% 53% 47%/44% 38% 62% 56%;background:var(--s100);display:flex;align-items:center;justify-content:center;overflow:hidden;border:3px solid #fff;box-shadow:var(--sh3)}
+.hphoto img{width:100%;height:100%;object-fit:cover;display:none}
+.hph{font-family:var(--fd);font-size:4rem;font-weight:700;color:var(--navy);opacity:.25}
+.hstats{display:flex;gap:32px;margin-top:40px;animation:fu .7s .5s both}
+.hsnum{font-family:var(--fd);font-size:1.8rem;font-weight:700;color:var(--navy);line-height:1}
+.hslbl{font-size:.75rem;color:var(--s400);margin-top:4px;font-weight:500}
+@keyframes fu{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── SECTIONS ── */
+section{padding:96px 5vw}
+.si{max-width:1100px;margin:0 auto}
+.stag{display:inline-block;font-family:var(--fm);font-size:.73rem;font-weight:500;color:var(--acc);letter-spacing:.12em;text-transform:uppercase;background:var(--accP);padding:4px 11px;border-radius:4px;margin-bottom:16px}
+.stitle{font-family:var(--fd);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;color:var(--s800);letter-spacing:-.02em;line-height:1.15;margin-bottom:12px}
+.ssub{font-size:1rem;color:var(--s400);max-width:520px;line-height:1.7;margin-bottom:52px}
+
+/* ── ABOUT ── */
+#about{background:var(--white)}
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.alist{display:flex;flex-direction:column;gap:12px}
+.aitem{display:flex;align-items:flex-start;gap:14px;padding:15px 18px;background:var(--cream);border-radius:var(--rs);border:1px solid var(--s200);transition:all var(--tr)}
+.aitem:hover{border-color:var(--accL);transform:translateX(4px)}
+.albl{font-size:.73rem;color:var(--s400);font-weight:500;margin-bottom:2px;letter-spacing:.03em}
+.aval{font-size:.9rem;color:var(--s800);font-weight:500}
+.agoals{display:flex;flex-direction:column;gap:18px}
+.agcard{background:var(--cream);border:1px solid var(--s200);border-radius:var(--r);padding:22px 24px;transition:all var(--tr);position:relative;overflow:hidden}
+.agcard::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px}
+.agcard.sh::before{background:var(--acc)} .agcard.lg::before{background:var(--navy)}
+.agcard:hover{box-shadow:var(--sh2);transform:translateY(-2px)}
+.agtype{font-family:var(--fm);font-size:.7rem;font-weight:500;color:var(--s400);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.aglist{list-style:none;display:flex;flex-direction:column;gap:8px}
+.aglist li{font-size:.875rem;color:var(--s600);line-height:1.6;padding-left:14px;position:relative}
+.aglist li::before{content:'→';position:absolute;left:0;color:var(--acc);font-size:.75rem;top:2px}
+
+/* ── EDUCATION ── */
+#education{background:var(--cream)}
+.ecard{background:var(--white);border-radius:var(--r);padding:36px 40px;border:1px solid var(--s200);box-shadow:var(--sh1);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start;transition:all var(--tr);margin-bottom:24px}
+.ecard:hover{box-shadow:var(--sh2);transform:translateY(-3px)}
+.ebadge{background:var(--navy);color:#fff;font-family:var(--fm);font-size:.7rem;font-weight:500;padding:4px 12px;border-radius:4px;margin-bottom:12px;display:inline-block}
+.edeg{font-family:var(--fd);font-size:1.4rem;font-weight:700;color:var(--s800);margin-bottom:4px}
+.esch{font-size:.9rem;color:var(--acc);font-weight:600;margin-bottom:16px}
+.egpa{display:inline-flex;align-items:center;gap:10px;background:var(--grnP);border:1px solid rgba(61,107,90,.2);padding:6px 16px;border-radius:50px;margin-bottom:20px}
+.egl{font-size:.78rem;color:var(--grn);font-weight:500}
+.egv{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:var(--grn)}
+.ehi{font-size:.875rem;color:var(--s600);display:flex;gap:10px;align-items:flex-start;margin-bottom:8px}
+.eper{font-family:var(--fm);font-size:.8rem;color:var(--s400);white-space:nowrap;padding:6px 14px;background:var(--cream);border-radius:var(--rs);text-align:center}
+.cchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.chip{font-size:.8rem;font-weight:500;padding:5px 13px;border-radius:50px;background:var(--s100);color:var(--s600);border:1px solid var(--s200);transition:all var(--tr);cursor:default}
+.chip:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* ── TIMELINE ── */
+#experience{background:var(--white)}
+.tl{position:relative;padding-left:36px}
+.tl::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--navy),var(--acc),var(--grn));border-radius:2px}
+.titem{position:relative;margin-bottom:44px;opacity:0;transform:translateX(-20px);transition:opacity .6s ease,transform .6s ease}
+.titem.vis{opacity:1;transform:none}
+.tdot{position:absolute;left:-42px;top:20px;width:18px;height:18px;border-radius:50%;border:3px solid var(--cream);z-index:1}
+.tcard{background:var(--cream);border:1px solid var(--s200);border-radius:var(--r);padding:24px 28px;transition:all var(--tr);position:relative;overflow:hidden}
+.tcard::after{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:4px 0 0 4px}
+.tcard:hover{box-shadow:var(--sh2);transform:translateX(6px)}
+.thdr{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:4px}
+.ttitle{font-family:var(--fd);font-size:1.12rem;font-weight:700;color:var(--s800)}
+.trole{font-size:.82rem;color:var(--acc);font-weight:600;font-style:italic;margin-bottom:10px}
+.tperiod{font-family:var(--fm);font-size:.74rem;color:var(--s400);white-space:nowrap;flex-shrink:0;padding-top:2px}
+.tbullets{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:10px}
+.tbullets li{font-size:.875rem;color:var(--s600);padding-left:16px;position:relative;line-height:1.6}
+.tbullets li::before{content:'▸';position:absolute;left:0;color:var(--navy);font-size:.7rem;top:4px}
+.ttech{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.ttag{font-family:var(--fm);font-size:.72rem;font-weight:500;padding:3px 9px;border-radius:4px;background:rgba(30,58,95,.08);color:var(--navy)}
+
+/* ── SKILLS ── */
+#skills{background:var(--cream)}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
+.scat{background:var(--white);border:1px solid var(--s200);border-radius:var(--r);padding:26px;transition:all var(--tr)}
+.scat:hover{box-shadow:var(--sh2);transform:translateY(-3px)}
+.scath{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.scico{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.scico.bl{background:rgba(30,58,95,.10)} .scico.or{background:var(--accP)} .scico.gr{background:var(--grnP)} .scico.pu{background:rgba(130,90,200,.10)}
+.scname{font-weight:700;font-size:.95rem;color:var(--s800)}
+.srows{display:flex;flex-direction:column;gap:11px}
+.srow{display:flex;align-items:center;gap:10px}
+.sname{font-size:.83rem;color:var(--s600);min-width:115px;font-weight:500}
+.sbwrap{flex:1;height:5px;background:var(--s100);border-radius:3px;overflow:hidden}
+.sbar{height:100%;border-radius:3px;background:var(--navy);width:0;transition:width 1.1s cubic-bezier(.4,0,.2,1)}
+.sbar.or{background:var(--acc)} .sbar.gr{background:var(--grn)}
+.spct{font-family:var(--fm);font-size:.7rem;color:var(--s400);min-width:30px;text-align:right}
+
+/* ── CERTS ── */
+#certifications{background:var(--white)}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px}
+.ccard{background:var(--cream);border:1px solid var(--s200);border-radius:var(--r);padding:26px 22px;transition:all var(--tr);position:relative;overflow:hidden}
+.ccard::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+.ccard:nth-child(3n+1)::before{background:linear-gradient(to right,var(--navy),var(--navyL))}
+.ccard:nth-child(3n+2)::before{background:linear-gradient(to right,var(--acc),var(--accL))}
+.ccard:nth-child(3n)::before{background:linear-gradient(to right,var(--grn),#5A9B84)}
+.ccard:hover{box-shadow:var(--sh2);transform:translateY(-4px)}
+.cico{width:50px;height:50px;border-radius:14px;background:var(--white);border:1px solid var(--s200);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:14px;box-shadow:var(--sh1)}
+.cname{font-family:var(--fd);font-size:1rem;font-weight:700;color:var(--s800);margin-bottom:6px;line-height:1.3}
+.ciss{font-size:.8rem;color:var(--s400);margin-bottom:12px}
+.cyr{font-family:var(--fm);font-size:.73rem;background:var(--s100);color:var(--s600);padding:3px 9px;border-radius:4px;display:inline-block}
+.cvbtn{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:.79rem;font-weight:600;color:var(--navy);text-decoration:none;padding:5px 11px;border-radius:6px;background:rgba(30,58,95,.07);transition:all var(--tr)}
+.cvbtn:hover{background:var(--navy);color:#fff}
+
+/* ── CONTACT ── */
+#contact{background:var(--cream)}
+.cogrid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.coinfo{display:flex;flex-direction:column;gap:14px}
+.coitem{display:flex;align-items:center;gap:16px;padding:17px 20px;background:var(--white);border:1px solid var(--s200);border-radius:var(--rs);transition:all var(--tr);text-decoration:none;color:inherit}
+.coitem:hover{border-color:var(--navy);box-shadow:var(--sh1);transform:translateX(4px)}
+.coico{width:44px;height:44px;border-radius:12px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.colbl{font-size:.73rem;color:var(--s400);font-weight:500}
+.coval{font-size:.9rem;color:var(--s800);font-weight:600}
+.cocta{background:var(--navy);border-radius:var(--r);padding:40px;text-align:center;color:#fff}
+.coctat{font-family:var(--fd);font-size:1.55rem;font-weight:700;margin-bottom:12px}
+.coctas{font-size:.9rem;opacity:.75;margin-bottom:28px;line-height:1.6}
+.btnw{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--navy);font-weight:700;font-size:.9rem;padding:12px 28px;border-radius:50px;text-decoration:none;border:none;cursor:pointer;transition:all var(--tr);box-shadow:0 4px 16px rgba(0,0,0,.15)}
+.btnw:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+
+footer{background:var(--s800);color:rgba(255,255,255,.5);text-align:center;padding:28px 5vw;font-size:.82rem}
+footer span{color:var(--accL)}
+footer a{color:rgba(255,255,255,.2);text-decoration:none;margin-left:6px}
+footer a:hover{color:rgba(255,255,255,.5)}
+
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rv.vis{opacity:1;transform:none}
+
+@media(max-width:768px){
+  .nlinks{display:none;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:var(--white);padding:20px;border-bottom:1px solid var(--s200);box-shadow:var(--sh2)}
+  .nlinks.op{display:flex}
+  .mbtn{display:flex}
+  .hinner{flex-direction:column-reverse;gap:28px}
+  .hpouter{width:180px;height:180px}
+  .agrid,.cogrid{grid-template-columns:1fr;gap:28px}
+  .ecard{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="loader"><div class="ld-logo">NHS</div><div class="ld-bar"><div class="ld-fill"></div></div></div>
+
+<nav id="nb">
+  <div class="nlogo" onclick="scrollTo(0,0)">NHS</div>
+  <div class="nlinks" id="nl">
+    <a href="#hero"  class="act" data-en="Home"         data-vi="Trang chủ">Home</a>
+    <a href="#about"           data-en="About"        data-vi="Giới thiệu">About</a>
+    <a href="#education"       data-en="Education"    data-vi="Học vấn">Education</a>
+    <a href="#experience"      data-en="Projects"     data-vi="Dự án">Projects</a>
+    <a href="#skills"          data-en="Skills"       data-vi="Kỹ năng">Skills</a>
+    <a href="#certifications"  data-en="Certs"        data-vi="Chứng chỉ">Certs</a>
+    <a href="#contact"         data-en="Contact"      data-vi="Liên hệ">Contact</a>
+  </div>
+  <div class="nright">
+    <button class="lbtn act" id="bEn" onclick="setLang('en')">EN</button>
+    <button class="lbtn"     id="bVi" onclick="setLang('vi')">VI</button>
+    <button class="mbtn" onclick="document.getElementById('nl').classList.toggle('op')">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hbg"></div><div class="hd1"></div><div class="hd2"></div>
+  <div class="hinner">
+    <div class="htext">
+      <div class="hbadge"><span class="hbdot"></span>
+        <span data-en="Open to Internship Opportunities" data-vi="Sẵn sàng thực tập">Open to Internship Opportunities</span>
+      </div>
+      <h1 class="hname">Nguyen<br><span>Hoang Son</span></h1>
+      <p class="htitle" id="heroTitle">Network System Administration Intern</p>
+      <p class="hdesc"  id="heroDesc">A dedicated Computer Networks student bridging academic knowledge with industry practice.</p>
+      <div class="hacts">
+        <a href="#contact" class="btnp">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <span data-en="Get in Touch" data-vi="Liên hệ ngay">Get in Touch</span>
+        </a>
+        <button class="btns" id="cvBtn" onclick="downloadCV()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span data-en="Download CV" data-vi="Tải CV">Download CV</span>
+        </button>
+      </div>
+      <div class="hstats">
+        <div><div class="hsnum" id="statGPA">7.93</div><div class="hslbl">GPA / 10.0</div></div>
+        <div><div class="hsnum" id="statP">4</div><div class="hslbl" data-en="Projects" data-vi="Dự án">Projects</div></div>
+        <div><div class="hsnum" id="statC">3</div><div class="hslbl" data-en="Certs" data-vi="Chứng chỉ">Certs</div></div>
+      </div>
+    </div>
+    <div class="hpwrap">
+      <div class="hpouter">
+        <div class="hpring"></div>
+        <div class="hphoto"><img id="hpimg" alt=""/><span class="hph" id="hpp">NHS</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about"><div class="si">
+  <div class="rv">
+    <div class="stag" data-en="About Me"    data-vi="Về tôi">About Me</div>
+    <h2 class="stitle" data-en="Who I Am"  data-vi="Tôi là ai">Who I Am</h2>
+    <p class="ssub" data-en="Personal information and career goals that define my journey." data-vi="Thông tin cá nhân và mục tiêu nghề nghiệp định hướng hành trình của tôi.">Personal information and career goals that define my journey.</p>
+  </div>
+  <div class="agrid rv">
+    <div class="alist" id="aboutInfoList">
+      <!-- filled by JS -->
+    </div>
+    <div class="agoals">
+      <div class="agcard sh">
+        <div class="agtype" data-en="Short-term Goals" data-vi="Mục tiêu ngắn hạn">Short-term Goals</div>
+        <ul class="aglist">
+          <li data-en="Gain hands-on experience in real-world network environments" data-vi="Tích lũy kinh nghiệm thực tế trong môi trường mạng">Gain hands-on experience in real-world network environments</li>
+          <li data-en="Build professional relationships with industry experts" data-vi="Xây dựng mối quan hệ chuyên nghiệp với chuyên gia ngành">Build professional relationships with industry experts</li>
+          <li data-en="Fulfill graduation requirements with high distinction" data-vi="Hoàn thành yêu cầu tốt nghiệp với thành tích xuất sắc">Fulfill graduation requirements with high distinction</li>
+        </ul>
+      </div>
+      <div class="agcard lg">
+        <div class="agtype" data-en="Long-term Goals" data-vi="Mục tiêu dài hạn">Long-term Goals</div>
+        <ul class="aglist">
+          <li data-en="Advance to higher-level positions through technical and leadership growth" data-vi="Tiến lên vị trí cao hơn qua phát triển kỹ thuật và lãnh đạo">Advance to higher-level positions through technical and leadership growth</li>
+          <li data-en="Specialize in Cyber Security within 2–3 years" data-vi="Chuyên sâu An ninh mạng trong 2–3 năm tới">Specialize in Cyber Security within 2–3 years</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- EDUCATION -->
+<section id="education"><div class="si">
+  <div class="rv">
+    <div class="stag" data-en="Education" data-vi="Học vấn">Education</div>
+    <h2 class="stitle" data-en="Academic Background" data-vi="Nền tảng học vấn">Academic Background</h2>
+    <p class="ssub" data-en="Building strong technical foundations at one of Vietnam's top universities." data-vi="Xây dựng nền tảng kỹ thuật vững chắc tại ĐH hàng đầu Việt Nam.">Building strong technical foundations.</p>
+  </div>
+  <div class="ecard rv">
+    <div>
+      <div class="ebadge" data-en="Bachelor's Degree" data-vi="Cử nhân">Bachelor's Degree</div>
+      <div class="edeg"   data-en="Computer Networks & Data Communication" data-vi="Mạng máy tính và Truyền thông dữ liệu">Computer Networks & Data Communication</div>
+      <div class="esch" id="uniName">Ton Duc Thang University</div>
+      <div class="egpa"><span class="egl">GPA</span><span class="egv" id="gpaVal">7.93 / 10.0</span></div>
+      <div class="ehi"><span>⚡</span><span data-en="Specialization: Network Administration and Security" data-vi="Chuyên ngành: Quản trị Mạng và Bảo mật">Specialization: Network Administration and Security</span></div>
+      <div class="ehi"><span>🏆</span><span data-en="Network System Administration 9.4/10 — Advanced Networks 8.9/10" data-vi="Quản trị Hệ thống Mạng 9.4/10 — Mạng nâng cao 8.9/10">Network System Administration 9.4/10 — Advanced Networks 8.9/10</span></div>
+    </div>
+    <div><div class="eper">2023 – 2027<br><span data-en="Expected" data-vi="Dự kiến">Expected</span></div></div>
+  </div>
+  <div class="rv">
+    <div class="stag" data-en="Relevant Coursework" data-vi="Môn học liên quan">Relevant Coursework</div>
+    <div class="cchips">
+      <span class="chip">Wireless Security</span><span class="chip">Computer Security</span>
+      <span class="chip">Cloud Computing</span><span class="chip">Digital Forensics</span>
+      <span class="chip">Network System Admin</span><span class="chip">Advanced Networks</span>
+    </div>
+  </div>
+</div></section>
+
+<!-- EXPERIENCE -->
+<section id="experience"><div class="si">
+  <div class="rv">
+    <div class="stag" data-en="Projects & Experience" data-vi="Dự án & Kinh nghiệm">Projects & Experience</div>
+    <h2 class="stitle" data-en="What I've Built" data-vi="Những gì tôi đã xây dựng">What I've Built</h2>
+    <p class="ssub"   data-en="A timeline of projects spanning networking, security, and software." data-vi="Hành trình dự án về mạng, bảo mật và phần mềm.">A timeline of projects spanning networking, security, and software.</p>
+  </div>
+  <div class="tl" id="tl"></div>
+</div></section>
+
+<!-- SKILLS -->
+<section id="skills"><div class="si">
+  <div class="rv">
+    <div class="stag"  data-en="Skills"             data-vi="Kỹ năng">Skills</div>
+    <h2 class="stitle" data-en="Technical Proficiency" data-vi="Năng lực kỹ thuật">Technical Proficiency</h2>
+    <p class="ssub"    data-en="Overview of my technical and soft skills." data-vi="Tổng quan kỹ năng kỹ thuật và kỹ năng mềm.">Overview of my technical and soft skills.</p>
+  </div>
+  <div class="sgrid" id="sg"></div>
+</div></section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications"><div class="si">
+  <div class="rv">
+    <div class="stag"  data-en="Certifications" data-vi="Chứng chỉ">Certifications</div>
+    <h2 class="stitle" data-en="Credentials"   data-vi="Bằng cấp & Chứng nhận">Credentials</h2>
+    <p class="ssub"    data-en="Professional certifications validating my expertise." data-vi="Chứng chỉ chuyên nghiệp xác nhận chuyên môn.">Professional certifications validating my expertise.</p>
+  </div>
+  <div class="cgrid" id="cg"></div>
+</div></section>
+
+<!-- CONTACT -->
+<section id="contact"><div class="si">
+  <div class="rv">
+    <div class="stag"  data-en="Contact"      data-vi="Liên hệ">Contact</div>
+    <h2 class="stitle" data-en="Let's Connect" data-vi="Kết nối với tôi">Let's Connect</h2>
+    <p class="ssub"    data-en="Open to internship and collaboration opportunities." data-vi="Sẵn sàng cho cơ hội thực tập và hợp tác.">Open to internship and collaboration opportunities.</p>
+  </div>
+  <div class="cogrid">
+    <div class="coinfo rv" id="contactLinks"></div>
+    <div class="cocta rv">
+      <div class="coctat" data-en="Open to Opportunities"  data-vi="Sẵn sàng cho cơ hội mới">Open to Opportunities</div>
+      <div class="coctas" data-en="Looking for internship positions in network administration and cybersecurity. Let's build something great together." data-vi="Đang tìm kiếm vị trí thực tập về quản trị mạng và an ninh mạng.">Looking for internship positions in network administration and cybersecurity.</div>
+      <a id="emailCta" href="mailto:Hoangson1132005@gmail.com" class="btnw">
+        ✉️ <span data-en="Send an Email" data-vi="Gửi Email">Send an Email</span>
+      </a>
+    </div>
+  </div>
+</div></section>
+
+<footer>
+  <p>© 2025 <span>Nguyen Hoang Son</span> — <span data-en="All rights reserved." data-vi="Bảo lưu mọi quyền.">All rights reserved.</span>
+  <a href="admin.html" data-en="Admin" data-vi="Quản trị">Admin</a></p>
+</footer>
+
+<script>
+// ════════════════════════════════════════════
+//  STATE
+// ════════════════════════════════════════════
+let D = {};          // data.json contents
+let lang = 'en';
+
+// ════════════════════════════════════════════
+//  LOAD data.json  (cache-bust every time)
+// ════════════════════════════════════════════
+async function loadData() {
+  try {
+    const res = await fetch('data.json?v=' + Date.now());
+    D = await res.json();
+  } catch(e) {
+    console.warn('Could not load data.json, using empty fallback');
+    D = { profile:{}, projects:[], skills:[], certifications:[] };
+  }
+  renderAll();
+  hideLoader();
+}
+
+function hideLoader(){ setTimeout(()=>document.getElementById('loader').classList.add('gone'), 400); }
+
+// ════════════════════════════════════════════
+//  RENDER ALL
+// ════════════════════════════════════════════
+function renderAll() {
+  renderProfile();
+  renderProjects();
+  renderSkills();
+  renderCerts();
+  renderContact();
+  applyLang();
+  watchReveal();
+}
+
+// ── Profile ──
+function renderProfile() {
+  const p = D.profile || {};
+  // title & desc
+  document.getElementById('heroTitle').textContent = lang==='vi' ? (p.title_vi||p.title_en||'') : (p.title_en||'');
+  document.getElementById('heroDesc').textContent  = lang==='vi' ? (p.desc_vi||p.desc_en||'')   : (p.desc_en||'');
+  // photo
+  if(p.photoUrl){ document.getElementById('hpimg').src=p.photoUrl; document.getElementById('hpimg').style.display='block'; document.getElementById('hpp').style.display='none'; }
+  // gpa
+  if(p.gpa) document.getElementById('gpaVal').textContent = p.gpa + ' / 10.0';
+  if(p.university_en) document.getElementById('uniName').textContent = lang==='vi'?p.university_vi:p.university_en;
+  // stats
+  document.getElementById('statGPA').textContent = p.gpa || '7.93';
+  document.getElementById('statP').textContent   = (D.projects||[]).length;
+  document.getElementById('statC').textContent   = (D.certifications||[]).length;
+  // about info list
+  const info = document.getElementById('aboutInfoList');
+  const rows = [
+    { icon:'📱', lbl_en:'Phone',      lbl_vi:'Điện thoại',   val: p.phone||'' },
+    { icon:'✉️', lbl_en:'Email',      lbl_vi:'Email',        val: p.email||'' },
+    { icon:'📍', lbl_en:'Location',   lbl_vi:'Địa chỉ',      val: lang==='vi'?(p.location_vi||p.location_en||''):(p.location_en||'') },
+    { icon:'🎓', lbl_en:'University', lbl_vi:'Trường',       val: lang==='vi'?(p.university_vi||p.university_en||''):(p.university_en||'') },
+  ];
+  if(p.github)   rows.push({ icon:'🐙', lbl_en:'GitHub',   lbl_vi:'GitHub',   val: p.github });
+  if(p.linkedin) rows.push({ icon:'💼', lbl_en:'LinkedIn', lbl_vi:'LinkedIn', val: p.linkedin.replace(/https?:\/\//,'') });
+  info.innerHTML = rows.filter(r=>r.val).map(r=>`
+    <div class="aitem">
+      <span>${r.icon}</span>
+      <div>
+        <div class="albl" data-en="${r.lbl_en}" data-vi="${r.lbl_vi}">${lang==='vi'?r.lbl_vi:r.lbl_en}</div>
+        <div class="aval">${r.val}</div>
+      </div>
+    </div>`).join('');
+  // cv button
+  document.getElementById('cvBtn').style.display = p.cvUrl ? 'inline-flex' : 'none';
+}
+
+function downloadCV(){
+  const url = (D.profile||{}).cvUrl;
+  if(url){ const a=document.createElement('a'); a.href=url; a.download='Nguyen_Hoang_Son_CV.pdf'; a.target='_blank'; a.click(); }
+}
+
+// ── Projects ──
+const dotC = ['#1E3A5F','#C9824A','#3D6B5A','#2E5082','#8B5CF6','#059669'];
+function renderProjects() {
+  const tl = document.getElementById('tl'); tl.innerHTML='';
+  (D.projects||[]).forEach((p,i) => {
+    const c = dotC[i%dotC.length];
+    const bullets = ((lang==='vi'?p.bullets_vi:p.bullets_en)||[]).map(b=>`<li>${b}</li>`).join('');
+    const tags    = (p.tech||[]).map(t=>`<span class="ttag">${t}</span>`).join('');
+    const role    = lang==='vi' ? (p.role_vi||p.role_en||'') : (p.role_en||'');
+    const el = document.createElement('div'); el.className='titem';
+    el.innerHTML=`
+      <style>.titem:nth-child(${i+1}) .tcard::after{background:${c}!important}</style>
+      <div class="tdot" style="background:${c};box-shadow:0 0 0 2px ${c}"></div>
+      <div class="tcard">
+        <div class="thdr">
+          <div><div class="ttitle">${p.title||''}</div><div class="trole">${role}</div></div>
+          <div class="tperiod">${p.period||''}</div>
+        </div>
+        <ul class="tbullets">${bullets}</ul>
+        <div class="ttech">${tags}</div>
+      </div>`;
+    tl.appendChild(el);
+  });
+}
+
+// ── Skills ──
+const catIco = {'Networking':'🌐','Systems Administration':'⚙️','Security & Forensics':'🔒','Development':'💻','Soft Skills':'🤝'};
+const catCls = {'Networking':'bl','Systems Administration':'or','Security & Forensics':'gr','Development':'pu','Soft Skills':'bl'};
+function renderSkills() {
+  const g = document.getElementById('sg'); g.innerHTML='';
+  const cats = [...new Set((D.skills||[]).map(s=>s.cat))];
+  cats.forEach(cat=>{
+    const rows = (D.skills||[]).filter(s=>s.cat===cat).map(s=>`
+      <div class="srow">
+        <span class="sname">${s.name}</span>
+        <div class="sbwrap"><div class="sbar ${catCls[cat]||'bl'}" data-pct="${s.pct}"></div></div>
+        <span class="spct">${s.pct}%</span>
+      </div>`).join('');
+    const card=document.createElement('div'); card.className='scat rv';
+    card.innerHTML=`
+      <div class="scath"><div class="scico ${catCls[cat]||'bl'}">${catIco[cat]||'⚡'}</div><div class="scname">${cat}</div></div>
+      <div class="srows">${rows}</div>`;
+    g.appendChild(card);
+  });
+}
+
+// ── Certs ──
+const certIcos=['🌐','⚡','🇬🇧','🏅','📜','🔒'];
+function renderCerts(){
+  const g=document.getElementById('cg'); g.innerHTML='';
+  (D.certifications||[]).forEach((c,i)=>{
+    const card=document.createElement('div'); card.className='ccard rv';
+    card.innerHTML=`
+      <div class="cico">${certIcos[i%certIcos.length]}</div>
+      <div class="cname">${c.name}</div>
+      <div class="ciss">${c.issuer}</div>
+      <span class="cyr">${c.year}</span>
+      ${c.fileUrl?`<br><a href="${c.fileUrl}" target="_blank" class="cvbtn">📎 <span data-en="View Certificate" data-vi="Xem chứng chỉ">${lang==='vi'?'Xem chứng chỉ':'View Certificate'}</span></a>`:''}`;
+    g.appendChild(card);
+  });
+}
+
+// ── Contact ──
+function renderContact(){
+  const p=D.profile||{};
+  const el=document.getElementById('contactLinks');
+  let html=`
+    <a href="tel:${p.phone||''}" class="coitem"><div class="coico">📱</div><div><div class="colbl" data-en="Phone" data-vi="Điện thoại">${lang==='vi'?'Điện thoại':'Phone'}</div><div class="coval">${p.phone||''}</div></div></a>
+    <a href="mailto:${p.email||''}" class="coitem"><div class="coico" style="background:var(--acc)">✉️</div><div><div class="colbl">Email</div><div class="coval">${p.email||''}</div></div></a>`;
+  if(p.github) html+=`<a href="https://github.com/${p.github.replace('@','')}" target="_blank" class="coitem"><div class="coico" style="background:#24292e">🐙</div><div><div class="colbl">GitHub</div><div class="coval">${p.github}</div></div></a>`;
+  if(p.linkedin){
+    const url=p.linkedin.startsWith('http')?p.linkedin:'https://'+p.linkedin;
+    html+=`<a href="${url}" target="_blank" class="coitem"><div class="coico" style="background:#0077B5">💼</div><div><div class="colbl">LinkedIn</div><div class="coval">${p.linkedin.replace(/https?:\/\//,'')}</div></div></a>`;
+  }
+  html+=`<div class="coitem"><div class="coico" style="background:var(--grn)">📍</div><div><div class="colbl" data-en="Location" data-vi="Địa điểm">${lang==='vi'?'Địa điểm':'Location'}</div><div class="coval">${lang==='vi'?(p.location_vi||''):(p.location_en||'')}</div></div></div>`;
+  el.innerHTML=html;
+  if(p.email) document.getElementById('emailCta').href='mailto:'+p.email;
+}
+
+// ════════════════════════════════════════════
+//  LANGUAGE
+// ════════════════════════════════════════════
+function setLang(l){
+  lang=l;
+  document.getElementById('bEn').classList.toggle('act',l==='en');
+  document.getElementById('bVi').classList.toggle('act',l==='vi');
+  document.querySelectorAll('[data-'+l+']').forEach(el=>el.textContent=el.getAttribute('data-'+l));
+  // re-render dynamic sections that depend on lang
+  if(Object.keys(D).length){ renderProfile(); renderProjects(); renderCerts(); renderContact(); }
+}
+function applyLang(){ setLang(lang); }
+
+// ════════════════════════════════════════════
+//  NAV / SCROLL
+// ════════════════════════════════════════════
+window.addEventListener('scroll',()=>{
+  document.getElementById('nb').classList.toggle('sc',scrollY>20);
+  const ids=['hero','about','education','experience','skills','certifications','contact'];
+  let cur='hero';
+  ids.forEach(id=>{ const el=document.getElementById(id); if(el&&scrollY>=el.offsetTop-100) cur=id; });
+  document.querySelectorAll('.nlinks a').forEach(a=>a.classList.toggle('act',a.getAttribute('href')==='#'+cur));
+});
+
+// ════════════════════════════════════════════
+//  INTERSECTION OBSERVER
+// ════════════════════════════════════════════
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('vis');
+      e.target.querySelectorAll('.sbar[data-pct]').forEach(b=>b.style.width=b.dataset.pct+'%');
+    }
+  });
+},{threshold:.1});
+function watchReveal(){ document.querySelectorAll('.rv,.titem').forEach(el=>obs.observe(el)); }
+
+// ════════════════════════════════════════════
+//  BOOT
+// ════════════════════════════════════════════
+loadData();
+</script>
+</body>
+</html>

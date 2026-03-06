@@ -1,0 +1,83 @@
+{
+  "profile": {
+    "name": "Nguyen Hoang Son",
+    "title_en": "Network System Administration Intern",
+    "title_vi": "Thực tập sinh Quản trị Hệ thống Mạng",
+    "desc_en": "A dedicated Computer Networks and Data Communication student bridging academic knowledge with industry practice. Specializing in Network Administration and Security.",
+    "desc_vi": "Sinh viên Mạng máy tính và Truyền thông dữ liệu, kết nối kiến thức học thuật với thực tiễn ngành. Chuyên ngành Quản trị Mạng và Bảo mật.",
+    "phone": "+84 901 237 941",
+    "email": "Hoangson1132005@gmail.com",
+    "location_en": "Nha Be, Ho Chi Minh City, Vietnam",
+    "location_vi": "Nhà Bè, TP. Hồ Chí Minh, Việt Nam",
+    "university_en": "Ton Duc Thang University",
+    "university_vi": "Đại học Tôn Đức Thắng",
+    "gpa": "7.93",
+    "github": "",
+    "linkedin": "",
+    "photoUrl": "",
+    "cvUrl": ""
+  },
+  "projects": [
+    {
+      "id": 1,
+      "title": "Environmental Monitoring Management System",
+      "role_en": "Project Manager & UI/UX Designer · CEC Company",
+      "role_vi": "Quản lý Dự án & Thiết kế UI/UX · Công ty CEC",
+      "period": "Sep 2024 – Jan 2025",
+      "bullets_en": ["Managed project lifecycles: weekly reporting, planning, and direct communication with CEC representatives", "Designed application themes and interfaces; maintained technical documentation and version control via GitHub"],
+      "bullets_vi": ["Quản lý vòng đời dự án: báo cáo hàng tuần, lập kế hoạch và giao tiếp với đại diện CEC", "Thiết kế giao diện ứng dụng; duy trì tài liệu kỹ thuật và kiểm soát phiên bản qua GitHub"],
+      "tech": ["C#", "SQL Server", "GitHub", ".NET"]
+    },
+    {
+      "id": 2,
+      "title": "Multi-Branch Enterprise Network & DFS",
+      "role_en": "Network Engineer · Windows Server Lab",
+      "role_vi": "Kỹ sư Mạng · Lab Windows Server",
+      "period": "Grade: 9.4/10",
+      "bullets_en": ["Engineered a multi-branch environment using Windows Server with Distributed File System (DFS)", "Deployed and configured ADDS and DNS, ensuring seamless synchronization across branches"],
+      "bullets_vi": ["Xây dựng môi trường đa chi nhánh sử dụng Windows Server với Hệ thống tệp phân tán (DFS)", "Triển khai ADDS và DNS, đảm bảo đồng bộ hóa liền mạch giữa các chi nhánh"],
+      "tech": ["Windows Server", "ADDS", "DNS", "DFS"]
+    },
+    {
+      "id": 3,
+      "title": "Automated Secure Network Infrastructure",
+      "role_en": "Network Security Engineer · GNS3 Platform",
+      "role_vi": "Kỹ sư Bảo mật Mạng · Nền tảng GNS3",
+      "period": "Grade: 8.9/10",
+      "bullets_en": ["Designed a secure network topology with Site-to-Site VPN, OSPF, VLAN, NAT/PAT, and ACL", "Integrated automation with Python scripts for network configuration within GNS3"],
+      "bullets_vi": ["Thiết kế topology mạng bảo mật với Site-to-Site VPN, OSPF, VLAN, NAT/PAT và ACL", "Tích hợp tự động hóa với Python script trong GNS3"],
+      "tech": ["GNS3", "Python", "OSPF", "VPN", "Cisco Packet Tracer"]
+    },
+    {
+      "id": 4,
+      "title": "Full-stack Web Projects (Portfolio & E-learning)",
+      "role_en": "Full-stack Developer · Academic Project",
+      "role_vi": "Lập trình viên Full-stack · Dự án học thuật",
+      "period": "Grade: 8.6/10",
+      "bullets_en": ["Developed functional web applications focusing on database management and responsive design"],
+      "bullets_vi": ["Phát triển ứng dụng web với trọng tâm quản lý cơ sở dữ liệu và thiết kế responsive"],
+      "tech": ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL"]
+    }
+  ],
+  "skills": [
+    { "id": 1, "name": "VLAN / OSPF",           "cat": "Networking",             "pct": 88 },
+    { "id": 2, "name": "VPN (Site-to-Site)",     "cat": "Networking",             "pct": 84 },
+    { "id": 3, "name": "NAT/PAT / ACL",          "cat": "Networking",             "pct": 85 },
+    { "id": 4, "name": "EtherChannel",           "cat": "Networking",             "pct": 75 },
+    { "id": 5, "name": "Windows Server",         "cat": "Systems Administration", "pct": 90 },
+    { "id": 6, "name": "Ubuntu Linux",           "cat": "Systems Administration", "pct": 78 },
+    { "id": 7, "name": "ADDS / DNS / DFS",       "cat": "Systems Administration", "pct": 86 },
+    { "id": 8, "name": "Wireshark",              "cat": "Security & Forensics",   "pct": 80 },
+    { "id": 9, "name": "Digital Forensics",      "cat": "Security & Forensics",   "pct": 70 },
+    { "id":10, "name": "Volatility Framework",   "cat": "Security & Forensics",   "pct": 72 },
+    { "id":11, "name": "Python (Automation)",    "cat": "Development",            "pct": 78 },
+    { "id":12, "name": "C# / .NET",              "cat": "Development",            "pct": 70 },
+    { "id":13, "name": "HTML / CSS / JS",        "cat": "Development",            "pct": 75 },
+    { "id":14, "name": "PHP / MySQL",            "cat": "Development",            "pct": 68 }
+  ],
+  "certifications": [
+    { "id": 1, "name": "CCNA: Enterprise Networking, Security & Automation", "issuer": "Ton Duc Thang University (Cisco)", "year": "2025", "fileUrl": "" },
+    { "id": 2, "name": "Agile Development & Scrum Framework",                "issuer": "TechBase Vietnam",                 "year": "2025", "fileUrl": "" },
+    { "id": 3, "name": "Aptis ESOL International Certificate (B2)",          "issuer": "British Council",                  "year": "2024", "fileUrl": "" }
+  ]
+}
