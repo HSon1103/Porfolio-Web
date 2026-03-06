@@ -42,16 +42,16 @@
     {
       "id": 2,
       "title": "Multi-Branch Enterprise Network & DFS",
-      "role_en": "Network Engineer Â· Windows Server Lab",
-      "role_vi": "Ká»¹ sÆ° Máº¡ng Â· Lab Windows Server",
+      "role_en": "Network Engineer For· Windows Server Lab",
+      "role_vi": "Kỹ sư thiết kế mạng",
       "period": "Grade: 9.4/10",
       "bullets_en": [
         "Engineered a multi-branch environment using Windows Server with Distributed File System (DFS)",
         "Deployed and configured ADDS and DNS, ensuring seamless synchronization across branches"
       ],
       "bullets_vi": [
-        "XÃ¢y dá»±ng mÃ´i trÆ°á»ng Äa chi nhÃ¡nh sá»­ dá»¥ng Windows Server vá»i Há» thá»ng tá»p phÃ¢n tÃ¡n (DFS)",
-        "Triá»n khai ADDS vÃ  DNS, Äáº£m báº£o Äá»ng bá» hÃ³a liá»n máº¡ch giá»¯a cÃ¡c chi nhÃ¡nh"
+        "Xây dựng hạ tầng mạng đa chi nhánh sử dụng Windows Server và giải pháp lưu trữ phân tán DFS.",
+        "Triển khai, tối ưu hóa ADDS và DNS, đảm bảo hệ thống vận hành ổn định và đồng bộ dữ liệu xuyên suốt giữa các văn phòng."
       ],
       "tech": [
         "Windows Server",
