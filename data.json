@@ -22,15 +22,15 @@
       "id": 1,
       "title": "Environmental Monitoring Management System",
       "role_en": "Project Manager & UI/UX Designer Â· CEC Company",
-      "role_vi": "Quáº£n lÃ½ Dá»± Ã¡n & Thiáº¿t káº¿ UI/UX Â· CÃ´ng ty CEC",
-      "period": "Sep 2024 â Jan 2025",
+      "role_vi": "Quản lý dự án & Thiết kế",
+      "period": "Sep 2024 - Jan 2025",
       "bullets_en": [
         "Managed project lifecycles: weekly reporting, planning, and direct communication with CEC representatives",
         "Designed application themes and interfaces; maintained technical documentation and version control via GitHub"
       ],
       "bullets_vi": [
-        "Quáº£n lÃ½ vÃ²ng Äá»i dá»± Ã¡n: bÃ¡o cÃ¡o hÃ ng tuáº§n, láº­p káº¿ hoáº¡ch vÃ  giao tiáº¿p vá»i Äáº¡i diá»n CEC",
-        "Thiáº¿t káº¿ giao diá»n á»©ng dá»¥ng; duy trÃ¬ tÃ i liá»u ká»¹ thuáº­t vÃ  kiá»m soÃ¡t phiÃªn báº£n qua GitHub"
+        "Chịu trách nhiệm quản lý vòng đời dự án, từ khâu lập kế hoạch, báo cáo định kỳ hàng tuần đến việc trao đổi trực tiếp với đại diện CEC.",
+        "Trực tiếp thiết kế giao diện (UI) và chủ đề cho ứng dụng; đồng thời đảm bảo hệ thống tài liệu kỹ thuật và quản lý phiên bản được vận hành trơn tru trên GitHub."
       ],
       "tech": [
         "C#",
